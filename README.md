@@ -20,7 +20,9 @@ This reposiotry contains code for our paper ***How Accents Confound: Probing for
 sudo docker build -t  deepspeech2.docker .
 sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/bash --net=host --ipc=host deepspeech2.docker
 ```
-3. The additional and/or modified files can be found in `DeeSpeech/` along with our trained model and Language Model (LM) used in `DeepSpeech/models`.  
+3. The additional and/or modified files can be found in `DeeSpeech/` along with our trained model and Language Model (LM) used in `DeepSpeech/models`.
+4. Install the [Mozilla Common Voice Dataset](), [TIMIT Dataset]() used in the experiments and the optional [Librispeech Dataset]() which is used only for training purposes.
+
 
 ## Citation
 
