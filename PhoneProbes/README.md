@@ -6,7 +6,9 @@ After training the phone-classifies on frame-level representations we look at th
 ### Confusion Matrix for Indian Accent
 <img align="left" width="290" height="290" src=ConfusionMatrices/indian/Conf_spec_indian.png> <img align="center" width="290" height="290" src=ConfusionMatrices/indian/Conf_conv_indian.png><img align="right" width="290" height="290" src=ConfusionMatrices/indian/Conf_rnn_0_indian.png>
 <img align="left" width="290" height="290" src=ConfusionMatrices/indian/Conf_rnn_1_indian.png> <img align="center" width="290" height="290" src=ConfusionMatrices/indian/Conf_rnn_2_indian.png><img align="right" width="290" height="290" src=ConfusionMatrices/indian/Conf_rnn_3_indian.png>
-<img align="center" width="290" height="290" src=ConfusionMatrices/indian/Conf_rnn_4_indian.png>
+<p align="center">
+  <width="290" height="290" src=ConfusionMatrices/indian/Conf_rnn_4_indian.png>
+</p>
 
 
 
