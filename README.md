@@ -21,7 +21,8 @@ sudo docker build -t  deepspeech2.docker .
 sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/bash --net=host --ipc=host deepspeech2.docker
 ```
 3. The additional and/or modified files can be found in `DeeSpeech/` along with our trained model and Language Model (LM) used in `DeepSpeech/models`.
-4. Install the [Mozilla Common Voice Dataset](), [TIMIT Dataset]() used in the experiments and the optional [Librispeech Dataset]() which is used only for training purposes.
+4. Install the [Mozilla Common Voice Dataset](https://voice.mozilla.org/en/datasets), [TIMIT Dataset](https://catalog.ldc.upenn.edu/LDC93S1) used in the experiments and the optional [Librispeech Dataset](www.openslr.org/12/) which is used only for training purposes.
+5. 
 
 
 ## Citation
