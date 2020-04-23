@@ -11,19 +11,13 @@ After training the phone-classifies on frame-level representations we look at th
   <img width="290" height="290" src=ConfusionMatrices/indian/Conf_rnn_4_indian.png>
 </p>
 
-### Confusion Matrix for US Accent
-<img align="left" width="290" height="290" src=ConfusionMatrices/us/Conf_spec_us.png> <img align="center" width="290" height="290" src=ConfusionMatrices/us/Conf_conv_us.png><img align="right" width="290" height="290" src=ConfusionMatrices/us/Conf_rnn_0_us.png>
+### Confusion Matrix for Canadian Accent
+<img align="left" width="290" height="290" src=ConfcanadaionMatrices/canada/Conf_spec_canada.png> <img align="center" width="290" height="290" src=ConfcanadaionMatrices/canada/Conf_conv_canada.png><img align="right" width="290" height="290" src=ConfcanadaionMatrices/canada/Conf_rnn_0_canada.png>
 
-<img align="left" width="290" height="290" src=ConfusionMatrices/us/Conf_rnn_1_us.png> <img align="center" width="290" height="290" src=ConfusionMatrices/us/Conf_rnn_2_us.png><img align="right" width="290" height="290" src=ConfusionMatrices/us/Conf_rnn_3_us.png>
+<img align="left" width="290" height="290" src=ConfcanadaionMatrices/canada/Conf_rnn_1_canada.png> <img align="center" width="290" height="290" src=ConfcanadaionMatrices/canada/Conf_rnn_2_canada.png><img align="right" width="290" height="290" src=ConfcanadaionMatrices/canada/Conf_rnn_3_canada.png>
 <p align="center">
-  <img width="290" height="290" src=ConfusionMatrices/us/Conf_rnn_4_us.png>
+  <img width="290" height="290" src=ConfcanadaionMatrices/canada/Conf_rnn_4_canada.png>
 </p>
-
-
-
-
-
-
 
 
 
