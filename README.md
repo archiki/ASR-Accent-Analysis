@@ -25,16 +25,16 @@ sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/b
 5. Install the [Mozilla Common Voice Dataset](https://voice.mozilla.org/en/datasets), [TIMIT Dataset](https://catalog.ldc.upenn.edu/LDC93S1) used in the experiments and the optional [Librispeech Dataset](www.openslr.org/12/) which is used only for training purposes.
 6. **Preparing Manifests**: The data used in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch) is required to be in *.csv* called *manifests* with two columns: `path to .wav file, path to .txt file`. The *.wav* file is the speech clip and the *.txt* files contain the transcript in upper case. For Librispeech, use the `data/librispeech.py` in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch). For the other datsets, use the files `DeepSpeech/make_{MCV,timit}_manifest.py` provided. The file corresponding to TIMIT works on the original folder structure whereas as for MCV, we need to provide a *.txt* file with entries of the format- `file.mp3 : reference text`.
 
-## Re-producing Experiment Results
+## Reproducing Experiment Results
 * **Section 2.1, Table 1:** This was obtained by testing the model using the following command and the appropriate manuscript:
 ```
 cd deepspeech.pytorch/
 python test.py --model-path ../Deepspeech/models/deepspeech_final.pth --test-manifest {accent manifest}.csv --cuda --decoder beam --alpha 2 --beta 0.4 --beam-width 128 --lm-path ../Deepspeech/models/4-gram.arpa
 ```
 * **Section 3.1, Attribution Analysis:** Code for all experiments in this section can be found in `AttrbutionAnalysis.ipynb`.
-The main requirements for this notebook include the gradient attributions calculated and the frame-level alignments that can be derived from the time(s)-level alignments using [gentle](https://github.com/lowerquality/gentle) along with accent labels and refernce transcripts.
+The main requirements for this notebook include the gradient attributions calculated using `Deepspeech/test_attr.py`and the frame-level alignments that can be derived from the time(s)-level alignments using [gentle](https://github.com/lowerquality/gentle) along with accent labels and refernce transcripts.
 
-* **Section 3.2, Information Mixing Analysis:** Datapoints for the figures showing phone focus and neighbour analysis can be found in `Contribution.ipynb`.  
+* **Section 3.2, Information Mixing Analysis:** Datapoints for the figures showing phone focus and neighbour analysis can be found in `Contribution.ipynb`. The gradient contributions specified in *equation (1)* are calculated in the `Deepspeech/test_contr.py`.
 
 
 
