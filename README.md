@@ -4,6 +4,7 @@ This reposiotry contains code for our paper ***How Accents Confound: Probing for
 
 ## Requirements
 * [Docker](https://docs.docker.com/engine/release-notes/): Version 19.03.1, build 74b1e89
+* [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
 * apex==0.1
 * numpy==1.16.3
 * torch==1.1.0
