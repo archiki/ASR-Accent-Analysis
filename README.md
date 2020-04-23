@@ -4,9 +4,11 @@ This reposiotry contains code for our paper ***How Accents Confound: Probing for
 
 ## Requirements
 
+
 ## Instructions
 
+## Citation
+
+
 ## Acknoledgements
-
-
-
+This project uses code from [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch).
