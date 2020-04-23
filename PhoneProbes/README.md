@@ -17,7 +17,6 @@ After training the phone-classifies on frame-level representations we look at th
 <img align="left" width="290" height="290" src=ConfusionMatrices/canada/Conf_rnn_1_canada.png> <img align="center" width="290" height="290" src=ConfusionMatrices/canada/Conf_rnn_2_canada.png><img align="right" width="290" height="290" src=ConfusionMatrices/canada/Conf_rnn_3_canada.png>
 <p align="center">
   <img width="290" height="290" src=ConfusionMatrices/canada/Conf_rnn_4_canada.png>
->>>>>>> 3de4440d5805736907aa75e6bfd8c9398a55b25a
 </p>
 
 
