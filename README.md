@@ -34,7 +34,7 @@ python test.py --model-path ../Deepspeech/models/deepspeech_final.pth --test-man
 * **Section 3.1, Attribution Analysis:** Code for all experiments in this section can be found in `AttrbutionAnalysis.ipynb`.
 The main requirements for this notebook include the gradient attributions calculated using `Deepspeech/test_attr.py`and the frame-level alignments that can be derived from the time(s)-level alignments using [gentle](https://github.com/lowerquality/gentle) along with accent labels and refernce transcripts.
 
-* **Section 3.2, Information Mixing Analysis:** Datapoints for the figures showing phone focus and neighbour analysis can be found in `Contribution.ipynb`. The gradient contributions specified in *equation (1)* are calculated in the `Deepspeech/test_contr.py`.
+* **Section 3.2, Information Mixing Analysis:** Datapoints for the figures showing phone focus and neighbour analysis can be found in `Contribution.ipynb`. The gradient contributions given by *equation (1)* are calculated in the `Deepspeech/test_contr.py`.
 
 
 
