@@ -43,11 +43,11 @@ def eval_phones(test_path,rep_type, batch_size, num_epochs, inp_dim0, inp_dim1, 
 		net.load_state_dict(state_dict)
 	except:
 		new_state_dict = OrderedDict()
-			for k, v in state_dict.items():
-				name = k[7:]
-				new_state_dict[name] = v
-			   #net = torch.nn.DataParallel(net)
-				net.load_state_dict(new_state_dict)
+		for k, v in state_dict.items():
+			name = k[7:]
+			new_state_dict[name] = v
+		   #net = torch.nn.DataParallel(net)
+			net.load_state_dict(new_state_dict)
 
 
 	valid_phones = ['ao', 'ae', 'r', 'eh', 't', 'b', 'aa', 'f', 'k', 'ng', 's', 'g', 'ow', 'er', 'l', 'th', 'z', 'aw', 'd', 'dh', 'sh', 'hh', 'iy', 'ch', 'm', 'ey', 'v', 'y', 'zh', 'jh', 'p', 'uw', 'ah', 'w', 'n', 'oy', 'ay', 'ih', 'uh']
