@@ -9,5 +9,5 @@ The file `test_contr.py` is used to calculate gradient contributions and can be 
 ``` 
 python test_contr.py --model-path models/deepspeech_final.pth --test-manifest {desired manifest}.csv --cuda 
 ```
-Both these files use `model_modifed.py` which stores the intermediate gradients required for the calculations. This model file should reflect in `utils.py`. For the purpose of storing the gradient attributions/contributions, the file `data/data_loader.py` is modified to output the file name/ unique ID in each batch. 
+Both these files use `model_modifed.py` which stores the intermediate gradients required for the calculations. This model file should reflect in `utils.py`. For the purpose of storing the gradient attributions/contributions, the file `data/data_loader.py` is modified to output the file name/ unique ID in each batch. Information about our pretrained model and Language Model (LM) used can be found in `models/`.
 
