@@ -1,6 +1,6 @@
 # Analyzing Confounding Effect of Accents in E-2-E ASR models
 
-This reposiotry contains code for our paper ***How Accents Confound: Probing for Accent Information in End-to-End Speech Recognition Systems***, on understanding the confounding effect of accents in an end-to-end Automatic Speech Recognition (ASR) model: [DeepSpeech 2](https://github.com/SeanNaren/deepspeech.pytorch) through several probing/analysis techniques, which is going to appear in [ACL 2020](acl2020.org).
+This reposiotry contains code for our paper ***How Accents Confound: Probing for Accent Information in End-to-End Speech Recognition Systems***, on understanding the confounding effect of accents in an end-to-end Automatic Speech Recognition (ASR) model: [DeepSpeech2](https://github.com/SeanNaren/deepspeech.pytorch) through several probing/analysis techniques, which is going to appear in [ACL 2020](acl2020.org).
 
 ## Requirements
 * [Docker](https://docs.docker.com/engine/release-notes/): Version 19.03.1, build 74b1e89
@@ -14,7 +14,16 @@ This reposiotry contains code for our paper ***How Accents Confound: Probing for
 
 
 ## Instructions
-1. 
+1. Follow the installation instructions for Docker given in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch). Build the docker image and use the bash entrypoint. The two consecutive instructions we used were:
+```
+sudo docker build -t  deepspeech2.docker .
+```
+Followed by,
+```
+sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/bash --net=host --ipc=host seannaren/deepspeech.pytorch:latest
+```
+
+2. 
 
 ## Citation
 
