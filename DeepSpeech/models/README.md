@@ -10,8 +10,8 @@ no-sortaGrad --opt-level O1 --loss-scale 1 --checkpoint --save-folder models/ --
 Libri Clean |  | 
 Libri Other |  | 
 
-[Librispeech Pre-trained Model](https://drive.google.com/uc?export=download&id=1njvgwduXkJXx3-0cHenL3-vfY5oTGzK3)
+Downlad Link: [Librispeech Pre-trained Model](https://drive.google.com/uc?export=download&id=1njvgwduXkJXx3-0cHenL3-vfY5oTGzK3)
 
 ### Language Model
-We used the [4-gram ARPA Language Model](www.openslr.org/resources/11/4-gram.arpa.gz) for LM decoding.
+We used the [4-gram ARPA Language Model](www.openslr.org/resources/11/4-gram.arpa.gz) for LM decoding which can be used by supplying the appropriate path to the argument `--lm-path` while running `test.py`.
 
