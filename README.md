@@ -14,13 +14,13 @@ This reposiotry contains code for our paper ***How Accents Confound: Probing for
 
 
 ## Instructions
-1. Clone [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch) and checkout the commit id `e73ccf6`. This was the stable commit used in our project and the subsequent experiments.
+1. Clone [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch) and checkout the commit id `e73ccf6`. This was the stable commit used in all our experiments.
 2. Use the docker file provided in this directory and build the docker image followed by running it via the bash entrypoint,use the commands below. This should be same as the dockerfile present in your folder deepspeech.pytorch, the instructions in the `README.md` of that folder have been modified. 
 ```
 sudo docker build -t  deepspeech2.docker .
 sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/bash --net=host --ipc=host deepspeech2.docker
 ```
-3. 
+3. The additional and/or modified files can be found in `DeeSpeech/` along with our trained model and LM used in `DeepSpeech/models`.  
 
 ## Citation
 
