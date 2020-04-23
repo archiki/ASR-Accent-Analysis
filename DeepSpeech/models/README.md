@@ -10,4 +10,6 @@ no-sortaGrad --opt-level O1 --loss-scale 1 --checkpoint --save-folder models/ --
 Libri Clean |  | 
 Libri Other |  | 
 
+[Pre-trained Librispeech Model](https://drive.google.com/file/d/1njvgwduXkJXx3-0cHenL3-vfY5oTGzK3/view?usp=sharing)
+
 ### Language Model
