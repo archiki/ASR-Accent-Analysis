@@ -14,12 +14,9 @@ This reposiotry contains code for our paper ***How Accents Confound: Probing for
 
 
 ## Instructions
-1. Follow the installation instructions for Docker given in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch). Build the docker image using the command below:
+1. Follow the installation instructions for Docker given in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch). Build the docker image followed by running it via the bash entrypoint,use the commands below:
 ```
 sudo docker build -t  deepspeech2.docker .
-```
-Followed by the following command selecting bash entrypoint,
-```
 sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/bash --net=host --ipc=host seannaren/deepspeech.pytorch:latest
 ```
 
