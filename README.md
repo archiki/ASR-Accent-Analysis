@@ -24,6 +24,12 @@ sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/b
 4. Install the [Mozilla Common Voice Dataset](https://voice.mozilla.org/en/datasets), [TIMIT Dataset](https://catalog.ldc.upenn.edu/LDC93S1) used in the experiments and the optional [Librispeech Dataset](www.openslr.org/12/) which is used only for training purposes.
 5. **Preparing Manifests**: The data used in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch) is required to be in *.csv* called *manifests* with two columns: `path to .wav file, path to .txt file`. The *.wav* file is the speech clip and the *.txt* files contain the transcript in upper case. For Librispeech, use the `data/librispeech.py` in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch). For the other datsets, use the files `DeepSpeech/make_{MCV,timit}_manifest.py` provided. The file corresponding to TIMIT works on the original folder structure whereas as for MCV, we need to provide a *.txt* file with entries of the format- `file.mp3 : reference text`.
 
+## Re-producing Experiment Results
+* **Table 1:** This was obtained by testing the model using the following command and the appropriate manuscript:
+```
+python test.py --model-path models/deepspeech_final.pth --test-manifest {accent manifest}.csv --cuda --decoder beam --alpha 2 --beta 0.4 --beam-width 128 --lm-path models/4-gram.arpa
+```
+
 
 ## Citation
 
