@@ -8,7 +8,7 @@ no-sortaGrad --opt-level O1 --loss-scale 1 --checkpoint --save-folder models/ --
 **Dataset** | **WER** | **CER**
 --- | --- | ---
 Libri Clean | 5.955 | 2.489
-Libri Other |  | 
+Libri Other | 19.036 | 10.383 
 
 Downlad Link: [Librispeech Pre-trained Model](https://drive.google.com/uc?export=download&id=1njvgwduXkJXx3-0cHenL3-vfY5oTGzK3)
 
