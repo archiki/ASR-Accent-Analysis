@@ -21,10 +21,10 @@ sudo docker build -t  deepspeech2.docker .
 sudo docker run -ti --gpus all -v `pwd`/data:/workspace/data --entrypoint=/bin/bash --net=host --ipc=host deepspeech2.docker
 ```
 3. Install all the requirements using `pip install -r requirements.txt`
-4. Clone this reposiotry code inside the docker container in the directory `/workspace/` and install the other requirements.
+4. Clone this repository code inside the docker container in the directory `/workspace/` and install the other requirements.
 5. Install the [Mozilla Common Voice Dataset](https://voice.mozilla.org/en/datasets), [TIMIT Dataset](https://catalog.ldc.upenn.edu/LDC93S1) used in the experiments and the optional [Librispeech Dataset](www.openslr.org/12/) which is used only for training purposes.
 6. **Preparing Manifests**: The data used in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch) is required to be in *.csv* called *manifests* with two columns: `path to .wav file, path to .txt file`. The *.wav* file is the speech clip and the *.txt* files contain the transcript in upper case. For Librispeech, use the `data/librispeech.py` in [deepspeech.pytorch](https://github.com/SeanNaren/deepspeech.pytorch). For the other datsets, use the files `DeepSpeech/data/make_{MCV,timit}_manifest.py` provided. The file corresponding to TIMIT works on the original folder structure whereas as for MCV, we need to provide a *.txt* file with entries of the format- `file.mp3 : reference text`.
-7. The additional and/or modified files can be found in `DeeSpeech/` along with our trained model and Language Model (LM) used in `DeepSpeech/models`.
+7. The additional and/or modified files can be found in `DeepSpeech/` along with our trained model and Language Model (LM) used in `DeepSpeech/models`.
 
 ## Reproducing Experiment Results
 * **Section 2.1, Table 1:** This was obtained by testing the model using the following command and the appropriate manuscript:
