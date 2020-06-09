@@ -10,7 +10,7 @@ class PhoneNet(nn.Module):
 	def __init__(self, input_dim, hidden_dim):
 		super(PhoneNet, self).__init__()
 		self.fc1 = nn.Linear(input_dim[0]*input_dim[1], 500)
-		self.fc = nn.Linear(hidden_dim, 55)#previous 39
+		self.fc = nn.Linear(hidden_dim, 39)#for MCV data, changed accordingly for TIMIT
 		self.drop_out = nn.Dropout(p = 0.4)
 
 	def forward(self, x):
