@@ -231,7 +231,7 @@ if __name__ == '__main__':
         for i, (data) in enumerate(train_loader, start=start_iter):
             if i == len(train_sampler):
                 break
-            inputs, targets, input_percentages, target_sizes = data
+            inputs, targets, input_percentages, target_sizes, filenames = data
             input_sizes = input_percentages.mul_(int(inputs.size(3))).int()
             # measure data loading time
             data_time.update(time.time() - end)
