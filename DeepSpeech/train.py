@@ -15,7 +15,7 @@ from data.data_loader import AudioDataLoader, SpectrogramDataset, BucketingSampl
 from decoder import GreedyDecoder
 from logger import VisdomLogger, TensorBoardLogger
 from model import DeepSpeech, supported_rnns
-from test_ import evaluate
+from test import evaluate
 from utils import reduce_tensor, check_loss
 
 parser = argparse.ArgumentParser(description='DeepSpeech training')
