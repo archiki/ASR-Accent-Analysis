@@ -52,7 +52,7 @@ def evaluate(test_loader, device, model, decoder, target_decoder, save_output=Fa
         decoded_output, _ = decoder.decode(out, output_sizes)
         target_strings = target_decoder.convert_to_strings(split_targets)
 
-        if args.save_output is not None:
+        if save_output is not None:
             # add output to data array, and continue
             output_data.append((out.cpu().numpy(), output_sizes.numpy(), target_strings))
         for x in range(len(target_strings)):

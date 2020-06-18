@@ -15,8 +15,9 @@ from data.data_loader import AudioDataLoader, SpectrogramDataset, BucketingSampl
 from decoder import GreedyDecoder
 from logger import VisdomLogger, TensorBoardLogger
 from model import DeepSpeech, supported_rnns
-from test_ import evaluate
+from test import evaluate
 from utils import reduce_tensor, check_loss
+from torch.utils.tensorboard import SummaryWriter
 
 parser = argparse.ArgumentParser(description='DeepSpeech training')
 parser.add_argument('--train-manifest', metavar='DIR',
@@ -25,7 +26,7 @@ parser.add_argument('--val-manifest', metavar='DIR',
                     help='path to validation manifest csv', default='data/val_manifest.csv')
 parser.add_argument('--sample-rate', default=16000, type=int, help='Sample rate')
 parser.add_argument('--batch-size', default=20, type=int, help='Batch size for training')
-parser.add_argument('--num-workers', default=4, type=int, help='Number of workers used in data-loading')
+parser.add_argument('--num-workers', default=0, type=int, help='Number of workers used in data-loading')
 parser.add_argument('--labels-path', default='labels.json', help='Contains all characters for transcription')
 parser.add_argument('--window-size', default=.02, type=float, help='Window size for spectrogram in seconds')
 parser.add_argument('--window-stride', default=.01, type=float, help='Window stride for spectrogram in seconds')
@@ -44,7 +45,7 @@ parser.add_argument('--checkpoint', dest='checkpoint', action='store_true', help
 parser.add_argument('--checkpoint-per-batch', default=0, type=int, help='Save checkpoint per batch. 0 means never save')
 parser.add_argument('--visdom', dest='visdom', action='store_true', help='Turn on visdom graphing')
 parser.add_argument('--tensorboard', dest='tensorboard', action='store_true', help='Turn on tensorboard graphing')
-parser.add_argument('--log-dir', default='visualize/deepspeech_final', help='Location of tensorboard log')
+parser.add_argument('--log_dir', default='visualize/deepspeech_final', help='Location of tensorboard log')
 parser.add_argument('--log-params', dest='log_params', action='store_true', help='Log parameter values and gradients')
 parser.add_argument('--id', default='Deepspeech training', help='Identifier for visdom/tensorboard run')
 parser.add_argument('--save-folder', default='models/', help='Location to save epoch models')
@@ -111,13 +112,13 @@ class AverageMeter(object):
 
 if __name__ == '__main__':
     args = parser.parse_args()
-
     # Set seeds for determinism
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed_all(args.seed)
     np.random.seed(args.seed)
     random.seed(args.seed)
 
+    writer = SummaryWriter(args.log_dir)
     device = torch.device("cuda" if args.cuda else "cpu")
     args.distributed = args.world_size > 1
     main_proc = True
@@ -136,8 +137,8 @@ if __name__ == '__main__':
     best_wer = None
     if main_proc and args.visdom:
         visdom_logger = VisdomLogger(args.id, args.epochs)
-    if main_proc and args.tensorboard:
-        tensorboard_logger = TensorBoardLogger(args.id, args.log_dir, args.log_params)
+#    if main_proc and args.tensorboard:
+#        tensorboard_logger = TensorBoardLogger(args.id, args.log_dir, args.log_params)
 
     avg_loss, start_epoch, start_iter, optim_state = 0, 0, 0, None
     if args.continue_from:  # Starting from previous model
@@ -173,7 +174,7 @@ if __name__ == '__main__':
                           window=args.window,
                           noise_dir=args.noise_dir,
                           noise_prob=args.noise_prob,
-                          noise_levels=list(range(args.noise_min,args.noise_max + args.noise_step,args.noise_step)
+                          noise_levels=list(range(args.noise_min,args.noise_max + args.noise_step,args.noise_step)))
 
         rnn_type = args.rnn_type.lower()
         assert rnn_type in supported_rnns, "rnn_type should be either lstm, rnn or gru"
@@ -192,8 +193,9 @@ if __name__ == '__main__':
     if not args.distributed:
         train_sampler = BucketingSampler(train_dataset, batch_size=args.batch_size)
     else:
-        train_sampler = DistributedBucketingSampler(train_dataset, batch_size=args.batch_size,
+        train_sampler = DistributedBucketingSampler(train_dataset, batch_size = args.batch_size,
                                                     num_replicas=args.world_size, rank=args.rank)
+        
     train_loader = AudioDataLoader(train_dataset,
                                    num_workers=args.num_workers, batch_sampler=train_sampler)
     test_loader = AudioDataLoader(test_dataset, batch_size=args.batch_size,
@@ -223,7 +225,7 @@ if __name__ == '__main__':
     batch_time = AverageMeter()
     data_time = AverageMeter()
     losses = AverageMeter()
-
+    step = 0
     for epoch in range(start_epoch, args.epochs):
         model.train()
         end = time.time()
@@ -268,7 +270,8 @@ if __name__ == '__main__':
 
             avg_loss += loss_value
             losses.update(loss_value, inputs.size(0))
-
+            writer.add_scalar('iteration/loss',loss_value,step)
+            step += 1
             # measure elapsed time
             batch_time.update(time.time() - end)
             end = time.time()
@@ -304,6 +307,9 @@ if __name__ == '__main__':
         loss_results[epoch] = avg_loss
         wer_results[epoch] = wer
         cer_results[epoch] = cer
+        writer.add_scalar('validation/cer',cer,step)
+        writer.add_scalar('validation/wer',wer,step)
+
         print('Validation Summary Epoch: [{0}]\t'
               'Average WER {wer:.3f}\t'
               'Average CER {cer:.3f}\t'.format(
