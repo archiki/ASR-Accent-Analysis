@@ -173,7 +173,7 @@ if __name__ == '__main__':
                           window=args.window,
                           noise_dir=args.noise_dir,
                           noise_prob=args.noise_prob,
-                          noise_levels=list(range(args.noise_min,args.noise_max + args.noise_step,args.noise_step)
+                          noise_levels=list(range(args.noise_min,args.noise_max + args.noise_step,args.noise_step)))
 
         rnn_type = args.rnn_type.lower()
         assert rnn_type in supported_rnns, "rnn_type should be either lstm, rnn or gru"
