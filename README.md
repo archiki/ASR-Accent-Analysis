@@ -1,6 +1,6 @@
 # Analyzing Confounding Effect of Accents in E-2-E ASR models
 
-This repository contains code for our paper ***How Accents Confound: Probing for Accent Information in End-to-End Speech Recognition Systems***, on understanding the confounding effect of accents in an end-to-end Automatic Speech Recognition (ASR) model: [DeepSpeech2](https://github.com/SeanNaren/deepspeech.pytorch) through several probing/analysis techniques, which is going to appear in [ACL 2020](https://acl2020.org/program/accepted/#long-papers).
+This repository contains code for our [paper](https://www.aclweb.org/anthology/2020.acl-main.345/) ***How Accents Confound: Probing for Accent Information in End-to-End Speech Recognition Systems***, on understanding the confounding effect of accents in an end-to-end Automatic Speech Recognition (ASR) model: [DeepSpeech2](https://github.com/SeanNaren/deepspeech.pytorch) through several probing/analysis techniques, which is going to appear in [ACL 2020](https://acl2020.org/program/accepted/#long-papers).
 
 ## Requirements
 * [Docker](https://docs.docker.com/engine/release-notes/): Version 19.03.1, build 74b1e89
@@ -41,6 +41,21 @@ The main requirements for this notebook include the gradient attributions calcul
 * **Section 5, Classifier-driven Analysis:** All the code files relevant to the *accent probe/classifiers* and *phone probe/classifiers* can be found in the folders `AccentProbe/` and `PhoneProbes/` respectively. These probes are trained on entire represenations and frame-level (and average) representations respectively. 
 
 ## Citation
+If you use this code in your work, please consider citing our paper:
+```
+@inproceedings{prasad-jyothi-2020-accents,
+    title = "How Accents Confound: Probing for Accent Information in End-to-End Speech Recognition Systems",
+    author = "Prasad, Archiki  and
+      Jyothi, Preethi",
+    booktitle = "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.acl-main.345",
+    pages = "3739--3753"}
+    
+```
 
 
 ## Acknowledgements
