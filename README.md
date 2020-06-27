@@ -42,7 +42,7 @@ The main requirements for this notebook include the gradient attributions calcul
 
 ## Citation
 If you use this code in your work, please consider citing our paper:
-```
+```bib
 @inproceedings{prasad-jyothi-2020-accents,
     title = "How Accents Confound: Probing for Accent Information in End-to-End Speech Recognition Systems",
     author = "Prasad, Archiki  and
